@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "behaviour"
+version = "0.2.0"
+description = "RATEL - Rodent Activity Tracking and Ethogram Lab: analysis, classification and reproducible benchmarks"
+requires-python = ">=3.11"
+dependencies = [
+    "numpy",
+    "pandas",
+    "opencv-python",
+    "openpyxl",
+]
+
+[project.optional-dependencies]
+oft = ["numpy<2.3", "opencv-python<4.13", "pandas<3", "scipy>=1.11,<1.16", "matplotlib", "holoviews>=1.18,<2", "IPython", "tqdm", "PyQt5>=5.15,<6"]
+oft-extra = ["scikit-learn", "torch>=2.6", "torchvision>=0.21"]
+scoring = ["scipy", "h5py"]
+dev = ["pytest"]
+model = ["scikit-learn>=1.4,<1.7"]
+benchmark = ["scikit-learn>=1.4,<1.7", "scipy", "matplotlib", "h5py"]
+
+[project.scripts]
+ratel = "behaviour.cli:main"
+behav = "behaviour.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

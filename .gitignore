@@ -1,0 +1,11 @@
+.venv/
+.venv-oft/
+__pycache__/
+*.egg-info/
+.pytest_cache/
+
+# raw videos and generated outputs stay out of git
+videos/
+output/
+tmp/
+tail-trail/results/
